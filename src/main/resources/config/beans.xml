@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="address" class="com.example.SpringLab.entity.Address">
+        <constructor-arg value="123 Main Street"/>
+        <constructor-arg value="Cairo"/>
+        <constructor-arg value="Egypt"/>
+    </bean>
+
+    <bean id="customer1" class="com.example.SpringLab.entity.Customer"
+          init-method="init" destroy-method="destroy" scope="singleton">
+        <constructor-arg value="1"/>
+        <constructor-arg value="Haya Elnaggar" type="java.lang.String"/>
+        <constructor-arg ref="address"/>
+    </bean>
+
+    <bean id="customer2" class="com.example.SpringLab.entity.Customer"
+          init-method="init" destroy-method="destroy" scope="singleton">
+        <constructor-arg value="1"/>
+        <constructor-arg value="Haya Elnaggar" type="java.lang.String"/>
+        <constructor-arg ref="address"/>
+    </bean>
+</beans>
